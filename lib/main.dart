@@ -1,3 +1,5 @@
+import 'package:chat_app/screens/auth/login_screen.dart';
+import 'package:chat_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,12 +12,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Chat Karo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          // In app bar theme same attributes for all the screens
+          iconTheme: IconThemeData(
+            color: Colors.black,
+              size: 28
+          ),
+          centerTitle: true,
+          elevation: 1,
+          titleTextStyle: TextStyle(
+            fontWeight: FontWeight.bold,color: Colors.black,fontSize: 20
+          ),
+          backgroundColor: Colors.white
+        ),
       ),
-      home: Scaffold(),
+      home: Login_Screen(),
     );
   }
 }
