@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:chat_app/api/api.dart';
 import 'package:chat_app/helper/dialog.dart';
 import 'package:chat_app/screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -59,7 +60,7 @@ Future<UserCredential?> _signInWithGoogle() async {
       );
 
       // Once signed in, return the UserCredential
-      return await FirebaseAuth.instance.signInWithCredential(credential);
+      return await APIs.auth.signInWithCredential(credential);
     }catch(e){
       log("_signInWithGoogle: $e");
       // displaying snack bar pop up

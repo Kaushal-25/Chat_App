@@ -1,3 +1,4 @@
+import 'package:chat_app/api/api.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -26,7 +27,7 @@ class _Home_ScreeenState extends State<Home_Screeen> {
       // bottom right side button
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          await FirebaseAuth.instance.signOut();
+          await APIs.auth.signOut();
           await GoogleSignIn().signOut();
         },
         child: Icon(Icons.add_circle,size: MediaQuery.of(context).size.width*.1,),
