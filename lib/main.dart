@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(
             fontWeight: FontWeight.w600,color: Colors.black,fontSize: MediaQuery.of(context).size.width*.055
           ),
-          backgroundColor: Colors.white
+          backgroundColor: Colors.white60
         ),
       ),
       home: Splash_Screen(),

@@ -33,13 +33,23 @@ bool  _isanimate = false;
   _handleGoogleBtnClick() {
     // showing progress bar in centre
     Dialogs.showProgressBar(context);
-    _signInWithGoogle().then((user) {
+    _signInWithGoogle().then((user) async {
       Navigator.pop(context);
       if(user != null) {
         log("/nUser: ${user.user}");
         log("/nUesr.AdditionalInfo: ${user.additionalUserInfo}");
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => Home_Screeen(),));
+
+        if((await APIs.userExists())) {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => Home_Screeen(),));
+        } else {
+          await APIs.createUser().then((value) {
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => Home_Screeen(),));
+          });
+        }
+
+
       }
     });
   }
